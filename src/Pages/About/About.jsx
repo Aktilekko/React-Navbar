@@ -19,6 +19,18 @@ function About() {
     },
   };
 
+  const skillsAnimation = {
+    hidden: {
+      y: -1000,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+      transition: { delay: custom * 0.4 },
+    }),
+  };
+
   const workVariants = {
     visible: (idx) => ({
       opacity: 1,
@@ -73,78 +85,39 @@ function About() {
           >
             My Skills
           </motion.h3>
-          <ul>
+          <motion.ul initial="hidden" whileInView="visible">
             <motion.li
               whileHover={{
                 scale: 1.5,
                 backgroundColor: "yellow",
               }}
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
+              custom={1}
+              variants={skillsAnimation}
             >
               <FaHtml5 />
               HTML
             </motion.li>
-            <motion.li
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
-            >
+            <motion.li custom={2} variants={skillsAnimation}>
               <FaCss3Alt />
               CSS
             </motion.li>
-            <motion.li
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
-            >
+            <motion.li custom={3} variants={skillsAnimation}>
               <SiJavascript />
               JavaScript
             </motion.li>
-            <motion.li
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
-            >
+            <motion.li custom={4} variants={skillsAnimation}>
               <FaSass />
               Sass
             </motion.li>
-            <motion.li
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
-            >
+            <motion.li custom={5} variants={skillsAnimation}>
               <FaReact />
               React
             </motion.li>
-            <motion.li
-              variants={h3Variants}
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{
-                duration: 1,
-              }}
-            >
+            <motion.li custom={6} variants={skillsAnimation}>
               <FaDocker />
               Docker
             </motion.li>
-          </ul>
+          </motion.ul>
         </div>
 
         <div className="about__portfolio">
